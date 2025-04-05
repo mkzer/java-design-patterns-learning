@@ -1,6 +1,6 @@
 # 🎯 Java Design Patterns – Apprentissage progressif
 
-Ce dépôt regroupe des implémentations simples et commentées de plusieurs **design patterns en Java**, dans le but de renforcer ma compréhension de la **programmation orientée objet (OOP)** et des **bonnes pratiques de conception logicielle**.
+Ce dépôt regroupe des implémentations simples et commentées de plusieurs **design patterns en Java**, dans le but de renforcer ma compréhension de la **programmation orientée objet (OOP)**, de la **gestion de projet avec Git**, et des **bonnes pratiques de conception logicielle**.
 
 ---
 
@@ -8,8 +8,30 @@ Ce dépôt regroupe des implémentations simples et commentées de plusieurs **d
 
 - Comprendre les design patterns les plus courants
 - Les implémenter en Java avec des exemples concrets
-- Documenter chaque pattern dans un dossier dédié
-- Utiliser Git et VS Code pour versionner l'apprentissage
+- Documenter chaque pattern dans un dossier dédié (`singleton`, `factory`, etc.)
+- Migrer vers une structure professionnelle avec `src/com/mkzer/...`
+- Utiliser Git et VS Code pour suivre l'évolution de l’apprentissage
+
+---
+
+## 🗂️ Structure du projet
+
+```plaintext
+java-design-patterns-learning/
+├── src/
+│   └── com/
+│       └── mkzer/
+│           ├── singleton/
+│           └── exceptions/
+├── singleton/        ← Dossiers de documentation (README, notes)
+├── exceptions/       ← Ancienne version + doc
+├── .vscode/          ← Config VS Code (sourcePath = "src")
+├── GIT_MEMO.md       ← Rappel des commandes Git utilisées
+├── README.md         ← Ce fichier
+```
+
+✅ Tous les fichiers `.java` sont désormais sous `src/com/mkzer/...`  
+📦 Chaque fichier commence par un `package com.mkzer.<dossier>;` cohérent
 
 ---
 
@@ -30,24 +52,33 @@ Ce dépôt regroupe des implémentations simples et commentées de plusieurs **d
 - Java 17+
 - VS Code avec extension Java
 - Git (via terminal ou intégré VS Code)
+- Java Language Server (`settings.json` configuré)
 
 ---
 
-## 🔍 Comment utiliser
+## 🔍 Compilation & exécution
 
-1. Cloner le dépôt :
-   ```bash
-   git clone https://github.com/ton-utilisateur/java-design-patterns-learning.git
-   ```
+### Compiler tout :
+```bash
+javac src/com/mkzer/**/*.java
+```
 
-2. Ouvrir le dossier dans VS Code
+### Exécuter un fichier :
+```bash
+java -cp src com.mkzer.singleton.test
+```
 
-3. Naviguer dans un dossier (ex : `singleton/`, `factory/`...) pour explorer le code
+---
+
+## 🧪 Astuces VS Code
+
+- Le fichier `.vscode/settings.json` permet à VS Code de reconnaître `src/` comme dossier source Java.
+- Utilise `Java: Clean Java Language Server` si les packages ne sont pas reconnus.
+- L’extension **Better Outline** permet de naviguer rapidement dans les classes et méthodes.
 
 ---
 
 ## 👨‍💻 Auteur
-
 
 Mohamed Anis Makhezer  
 [LinkedIn – anis-makhezer](https://www.linkedin.com/in/anis-makhezer-046649309/)  

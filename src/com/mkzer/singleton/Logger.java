@@ -1,3 +1,4 @@
+package com.mkzer.singleton;
 import java.time.LocalDateTime;
 
 public class Logger {

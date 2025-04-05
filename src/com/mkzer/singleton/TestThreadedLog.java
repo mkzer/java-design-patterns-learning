@@ -1,3 +1,5 @@
+package com.mkzer.singleton;
+
 public class TestThreadedLog {
     public static void main(String[] args) {
         Runnable task = () -> {

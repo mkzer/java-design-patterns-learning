@@ -1,4 +1,5 @@
-package exceptions;
+package com.mkzer.exceptions;
+
 
 public class FinallyDemo {
     public static void main(String[] args) {

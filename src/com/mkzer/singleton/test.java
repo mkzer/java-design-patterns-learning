@@ -1,3 +1,4 @@
+package com.mkzer.singleton;
 public class test{
     public static void main(String[] args) {
         Logger logger1 = Logger.getInstance();
