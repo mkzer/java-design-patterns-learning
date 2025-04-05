@@ -1,12 +1,11 @@
-public class test {
+public class test{
     public static void main(String[] args) {
-        Logger l1 = Logger.getInstance();
-        Logger l2 = Logger.getInstance();
+        Logger logger1 = Logger.getInstance();
+        Logger logger2 = Logger.getInstance();
 
-    Logger.log("Hello");
-    Logger.log("World");
+        logger1.log("Hello");
+        logger2.log("World");
 
-    System.out.println(l1 == l2); // true
-
+        System.out.println(logger1 == logger2); // true
     }
 }

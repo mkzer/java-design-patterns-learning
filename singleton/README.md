@@ -1,48 +1,72 @@
-# 🎯 Java Design Patterns – Apprentissage progressif
+# 🧩 Pattern Singleton – Implémentation Java
 
-Ce dépôt regroupe des implémentations simples et commentées de plusieurs **design patterns en Java**, dans le but de renforcer ma compréhension de la **programmation orientée objet (OOP)** et des **bonnes pratiques de conception logicielle**.
-
----
-
-## 🧠 Objectifs
-
-- Comprendre les design patterns les plus courants
-- Les implémenter en Java avec des exemples concrets
-- Documenter chaque pattern dans un dossier dédié
-- Utiliser Git et VS Code pour versionner l'apprentissage
+Ce dossier contient une **implémentation complète du design pattern Singleton** en Java, accompagnée de deux classes de test :
+- Une version classique (`test.java`)
+- Une version multithreadée (`TestThreadedLog.java`) pour tester la robustesse du Singleton en environnement concurrent.
 
 ---
 
-## ✅ Patterns étudiés
+## 🧠 Objectif
 
-| Pattern     | Statut     | Description courte                                |
-|-------------|------------|---------------------------------------------------|
-| Singleton   | ✅ Fait     | Une seule instance partagée dans toute l’appli   |
-| Factory     | ✅ Fait     | Crée des objets sans exposer `new`               |
-| Observer    | ⏳ En cours | Notifie des objets lors d’un changement d’état   |
-| Strategy    | 🔜 À venir  | Change dynamiquement l’algorithme utilisé        |
-| Decorator   | 🔜 À venir  | Ajoute dynamiquement des fonctionnalités         |
+Mettre en œuvre un **Logger** qui respecte le pattern Singleton :
+- Une seule instance de `Logger`
+- Un compteur de logs
+- Un horodatage avec `LocalDateTime`
+- Sécurisé pour l’usage multithread grâce à `synchronized`
 
 ---
 
-## 💻 Environnement utilisé
+## 📄 Fichiers présents
 
-- Java 17+
-- VS Code avec extension Java
-- Git (via terminal ou intégré VS Code)
+| Fichier                   | Rôle                                                                 |
+|---------------------------|----------------------------------------------------------------------|
+| `Logger.java`             | Implémentation du Singleton (version eager), avec `log()` thread-safe |
+| `test.java`               | Test basique : vérifie l’unicité de l’instance et le comptage        |
+| `TestThreadedLog.java`    | Test avancé : exécute plusieurs threads pour valider la sécurité     |
+| `README.md`               | Ce fichier de documentation                                           |
 
 ---
 
-## 🔍 Comment utiliser
+## ✅ Résultat attendu (exemple)
 
-1. Cloner le dépôt :
-   ```bash
-   git clone https://github.com/ton-utilisateur/java-design-patterns-learning.git
-   ```
+```
+[LOG 1 - 2025-04-05T22:40:22.901] Hello
+[LOG 2 - 2025-04-05T22:40:23.010] World
+true
+[LOG 3 - 2025-04-05T22:40:23.100] Message from T1
+[LOG 4 - 2025-04-05T22:40:23.101] Message from T3
+[LOG 5 - 2025-04-05T22:40:23.102] Message from T2
+```
 
-2. Ouvrir le dossier dans VS Code
+---
 
-3. Naviguer dans un dossier (ex : `singleton/`, `factory/`...) pour explorer le code
+## ❓ Points de compréhension abordés
+
+### 🔹 Pourquoi `log()` ne doit pas être `static` ?
+Parce que dans un Singleton, on souhaite **forcer l’accès via `getInstance()`**, et éviter l’appel direct à une méthode statique.
+
+### 🔹 À quoi sert `synchronized` dans `log()` ?
+À **protéger l’accès concurrent** au compteur `count` pour éviter des incohérences si plusieurs threads écrivent en même temps.
+
+### 🔹 Quelle est la différence entre `Logger.getInstance().log()` et `Logger.log()` ?
+- `Logger.getInstance().log()` : pattern Singleton respecté
+- `Logger.log()` : méthode statique → contourne le principe du Singleton (même si fonctionnellement correct)
+
+---
+
+## 🚀 Pour exécuter les tests
+
+### Test classique :
+```bash
+javac Logger.java test.java
+java test
+```
+
+### Test multithreadé :
+```bash
+javac Logger.java TestThreadedLog.java
+java TestThreadedLog
+```
 
 ---
 
@@ -51,9 +75,3 @@ Ce dépôt regroupe des implémentations simples et commentées de plusieurs **d
 Mohamed Anis Makhezer  
 [LinkedIn – anis-makhezer](https://www.linkedin.com/in/anis-makhezer-046649309/)  
 Projet personnel d’apprentissage – 2025
-
----
-
-## 📜 Licence
-
-Ce dépôt est partagé à titre éducatif, sous licence MIT.
