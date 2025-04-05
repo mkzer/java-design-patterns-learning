@@ -1,3 +1,5 @@
+package exceptions;
+
 public class ExceptionDemo {
     public static void main(String[] args) {
         try {
@@ -21,7 +23,7 @@ public class ExceptionDemo {
             System.out.println("❗ IllegalArgumentException attrapée : " + e.getMessage());
 
         } catch (Exception e) {
-            // Dernier filet de sécurité (générique)
+            // Dernier filet de sécurité
             System.out.println("❗ Autre exception attrapée : " + e.getMessage());
         }
 
