@@ -1,0 +1,23 @@
+# === Java ===
+*.class
+*.jar
+*.war
+*.ear
+
+/bin/
+/out/
+/target/
+
+# === Logs ===
+*.log
+
+# === VS Code ===
+.vscode/
+
+# === OS files ===
+.DS_Store
+Thumbs.db
+
+# === Backup files ===
+*~
+*.swp
